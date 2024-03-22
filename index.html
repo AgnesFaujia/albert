@@ -34,10 +34,9 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="./assets/favicon.png" />
   </head>
-  <body class="font-poppins bg-primary-dark-300">
+  <body class="font-poppins bg-primary-dark-300" x-data="{ isOpen: true }">
     <nav
       class="flex items-center justify-between flex-wrap p-6 fixed w-full z-10 top-0 bg-primary-dark-300"
-      x-data="{ isOpen: false }"
       @keydown.escape="isOpen = false"
     >
       <div class="flex items-center flex-shrink-0 text-white mr-6">
@@ -45,7 +44,7 @@
           class="text-white no-underline hover:text-white hover:no-underline"
           href="/"
         >
-          <img src="/assets/header/Logo.png" alt="logo" class="w-max h-max" />
+          <img src="/assets/header/ipsum.png" alt="logo" class="w-max h-max" />
         </a>
       </div>
 
@@ -78,8 +77,8 @@
       <div
         class="w-full flex-grow lg:flex lg:items-center lg:w-auto"
         :class="{
-          'hidden':isOpen,
-          'block':!isOpen
+          'hidden': isOpen,
+          'block': !isOpen
         }"
         @click.away="isOpen = false"
         x-show.transition="true"
@@ -116,7 +115,6 @@
         <a
           class="mx-5 inline-block text-primary-brand rounded-full border border-primary-brand hover:bg-primary-brand hover:text-white no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
           href="/"
-          @click="isOpen = false"
           >Sign In
         </a>
       </div>
