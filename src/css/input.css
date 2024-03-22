@@ -3,32 +3,34 @@
 @tailwind utilities;
 
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-    display: block;
-    width: max-content;
+  display: block;
+  width: max-content;
 }
 
-textarea:focus, input:focus{
+textarea:focus,
+input:focus {
   outline: none;
 }
 
 .marquee {
-    animation: scrolling var(--marquee-time) linear infinite;
+  animation: scrolling var(--marquee-time) linear infinite;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrolling {
+  0% {
+    transform: translateX(0);
   }
 
-  .marquee:hover {
-    animation-play-state: paused;
+  100% {
+    transform: translateX(calc(-1 * var(--marquee-width)));
   }
-
-  @keyframes scrolling {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(calc(-1 * var(--marquee-width)));
-    }
-  }
+}
