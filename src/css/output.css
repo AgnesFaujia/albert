@@ -603,6 +603,11 @@ video {
   margin-bottom: 1.25rem;
 }
 
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -635,12 +640,12 @@ video {
   margin-top: 2.5rem;
 }
 
-.mb-24 {
-  margin-bottom: 6rem;
-}
-
 .mt-24 {
   margin-top: 6rem;
+}
+
+.ml-5 {
+  margin-left: 1.25rem;
 }
 
 .block {
@@ -688,6 +693,10 @@ video {
   width: 1.5rem;
 }
 
+.w-auto {
+  width: auto;
+}
+
 .w-full {
   width: 100%;
 }
@@ -695,14 +704,6 @@ video {
 .w-max {
   width: -moz-max-content;
   width: max-content;
-}
-
-.w-auto {
-  width: auto;
-}
-
-.max-w-3xl {
-  max-width: 48rem;
 }
 
 .max-w-full {
@@ -719,6 +720,14 @@ video {
 
 .flex-grow {
   flex-grow: 1;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.grow-0 {
+  flex-grow: 0;
 }
 
 .flex-col {
@@ -743,6 +752,10 @@ video {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
 }
 
 .gap-10 {
@@ -846,16 +859,6 @@ video {
   background-color: transparent;
 }
 
-.bg-gray-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
 .fill-current {
   fill: currentColor;
 }
@@ -933,11 +936,6 @@ video {
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-}
-
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
 }
 
 .pb-8 {
@@ -1127,6 +1125,16 @@ textarea:focus, input:focus{
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.hover\:text-black:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.hover\:text-primary-brand:hover {
+  --tw-text-opacity: 1;
+  color: rgb(241 87 87 / var(--tw-text-opacity));
+}
+
 .hover\:no-underline:hover {
   text-decoration-line: none;
 }
@@ -1143,6 +1151,20 @@ textarea:focus, input:focus{
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:w-auto {
+    width: auto;
+  }
+
+  .md\:items-center {
+    align-items: center;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1196,21 +1218,8 @@ textarea:focus, input:focus{
     margin-bottom: 1.25rem;
   }
 
-  .xl\:my-10 {
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .xl\:mb-10 {
-    margin-bottom: 2.5rem;
-  }
-
   .xl\:block {
     display: block;
-  }
-
-  .xl\:flex {
-    display: flex;
   }
 
   .xl\:hidden {
@@ -1263,14 +1272,6 @@ textarea:focus, input:focus{
 
   .xl\:p-10 {
     padding: 2.5rem;
-  }
-
-  .xl\:p-8 {
-    padding: 2rem;
-  }
-
-  .xl\:p-4 {
-    padding: 1rem;
   }
 
   .xl\:px-10 {

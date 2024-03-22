@@ -34,63 +34,65 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="./assets/favicon.png" />
   </head>
-  <body class="font-poppins bg-primary-dark-300" x-data="{ isOpen: false }">
+  <body class="font-poppins bg-primary-dark-300">
     <nav
       class="flex items-center justify-between flex-wrap p-6 fixed w-full z-10 top-0 bg-primary-dark-300"
+      x-data="{ isOpen: false }"
       @keydown.escape="isOpen = false"
     >
-      <!-- Logo -->
       <div class="flex items-center flex-shrink-0 text-white mr-6">
         <a
           class="text-white no-underline hover:text-white hover:no-underline"
-          href="#"
+          href="/"
         >
-          <img src="/assets/header/Logo.png" alt="logo" />
+          <img src="/assets/header/Logo.png" alt="logo" class="w-max h-max" />
         </a>
       </div>
 
-      <!-- Button -->
+      <!--Toggle button (hidden on large screens)-->
       <button
         @click="isOpen = !isOpen"
         type="button"
-        class="block lg:hidden px-2 text-gray-500 hover:text-white focus:outline-none focus:text-white"
         :class="{ 'transition transform-180': isOpen }"
+        class="block lg:hidden transition-all px-2 text-gray-500 hover:text-white focus:outline-none focus:text-white"
       >
         <svg
-          class="h-6 w-6 fill-current text-white"
+          class="h-6 w-6 fill-current"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
           <path
-            x-show="isOpen"
+            x-show="!isOpen"
             fill-rule="evenodd"
             clip-rule="evenodd"
             d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
           />
           <path
-            x-show="!isOpen"
+            x-show="isOpen"
             fill-rule="evenodd"
             d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
           />
         </svg>
       </button>
 
-      <!--Menu-->
       <div
         class="w-full flex-grow lg:flex lg:items-center lg:w-auto"
-        :class="{ 'block shadow-3xl': isOpen, 'hidden': !isOpen }"
+        :class="{
+          'hidden':isOpen,
+          'block':!isOpen
+        }"
         @click.away="isOpen = false"
         x-show.transition="true"
       >
         <ul
-          class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center"
+          class="pt-6 lg:pt-0 list-reset lg:flex justify-center flex-1 items-center"
         >
           <li class="mr-3">
             <a
               class="inline-block py-2 px-4 text-white no-underline"
               href="#"
               @click="isOpen = false"
-              >Active
+              >About Us
             </a>
           </li>
           <li class="mr-3">
@@ -98,7 +100,7 @@
               class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
               href="#"
               @click="isOpen = false"
-              >link
+              >Features
             </a>
           </li>
           <li class="mr-3">
@@ -106,95 +108,23 @@
               class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
               href="#"
               @click="isOpen = false"
-              >link
+              >Our Services
             </a>
-          </li>
-          <li class="mr-3">
-            <a
-              class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-              href="#"
-              @click="isOpen = false"
-              >link
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <!-- Header -->
-    <!-- <header
-      class="xl:mb-10 p-4 xl:p-8 flex justify-between items-center fixed w-full z-10 top-0 bg-primary-dark-300"
-    >
-      <img
-        src="./assets/header/Logo.png"
-        alt="logo-navbar"
-        class="w-max h-max"
-      />
-
-      <div class="hidden">
-        <ul class="hidden text-white xl:flex items-center gap-10">
-          <li class="hover:cursor-pointer">About Us</li>
-          <li
-            class="text-primary-gray hover:cursor-pointer hover:text-white transition-all"
-          >
-            Features
-          </li>
-          <li
-            class="text-primary-gray hover:cursor-pointer hover:text-white transition-all"
-          >
-            Showcase
           </li>
         </ul>
 
         <a
-          class="hidden xl:block py-2 px-6 rounded-full bg-primary-brand text-white my-2"
-          >Login</a
-        >
+          class="mx-5 inline-block text-primary-brand rounded-full border border-primary-brand hover:bg-primary-brand hover:text-white no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+          href="/"
+          @click="isOpen = false"
+          >Sign In
+        </a>
       </div>
-
-      <nav class="flex flex-col gap-5">
-        <button @click="isOpen = !isOpen">
-          <svg
-            class="h-6 w-6 fill-current text-white"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-          >
-            <path
-              x-show="isOpen"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
-            />
-            <path
-              x-show="!isOpen"
-              fill-rule="evenodd"
-              d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-            />
-          </svg>
-        </button>
-
-        <ul
-          class="bg-primary-dark-400 text-white py-5 px-10"
-          :class="{ 'block': isOpen, 'hidden':!isOpen}"
-        >
-          <li class="hover:cursor-pointer">About Us</li>
-          <li
-            class="text-primary-gray hover:cursor-pointer hover:text-white transition-all my-5"
-          >
-            Features
-          </li>
-          <li
-            class="text-primary-gray hover:cursor-pointer hover:text-white transition-all"
-          >
-            Showcase
-          </li>
-        </ul>
-      </nav>
-    </header> -->
+    </nav>
 
     <!-- Hero -->
     <div class="mt-24 mb-8 min-h-screen">
-      <div class="p-4">
+      <div class="py-10 px-4">
         <img
           src="./assets/hero/hero-image.png"
           alt="hero-image"
@@ -309,7 +239,7 @@
               class="flex justify-between items-center mb-10 border-b pb-8 border-dashed border-primary-gray"
             >
               <h5 class="text-white font-bold text-xl">Retirement Plan</h5>
-              <img src="./assets/icon/calc.png" alt="invesment" />
+              <img src="./assets/icon/layer.png" alt="invesment" />
             </div>
             <p class="my-5 text-primary-gray">
               FramerBite offers the essential building blocks for developing a
@@ -335,7 +265,7 @@
               <h5 class="text-white font-bold text-xl">
                 Global Visa and Mastecard
               </h5>
-              <img src="./assets/icon/calc.png" alt="invesment" />
+              <img src="./assets/icon/card.png" alt="invesment" />
             </div>
             <p class="my-5 text-primary-gray">
               FramerBite provides the necessary elements for crafting a
@@ -456,13 +386,13 @@
     <!--  -->
     <div class="bg-primary-dark-300">
       <div
-        class="py-10 px-2 flex flex-col gap-5 xl:flex-row xl:justify-center xl:items-center"
+        class="p-10 px-2 flex flex-col gap-5 xl:flex-row xl:justify-center xl:items-center"
       >
         <div class="w-full xl:w-1/2">
           <img
             src="./assets/image/person.png"
             alt="person"
-            class="w-max h-max xl:w-1/2 mx-auto"
+            class="p-5 mb-5 mx-auto w-max xl:w-2/3 h-max"
           />
         </div>
 
